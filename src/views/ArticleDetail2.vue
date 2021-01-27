@@ -1,5 +1,5 @@
 <template>
-  <div class="article_detail">
+  <div class="article_detail2">
     <Topbg :img="topBg" />
     <div class="detail">
       <div v-if="type==1" class="d_nav">技术资源 > 技术文章 > {{detail.title}}</div>
@@ -30,8 +30,8 @@
               <img src="../assets/images/detail4.png" alt="">
             </router-link> -->
           </div>
-          <div class="share_right flex_y_center">
-            <router-link class="flex_y_center" v-if="last.length!=0" :to="'/articledetail/'+last.id">
+          <div class="share_right ">
+            <router-link class="flex_y_center" v-if="last.length!=0" :to="'/articledetail2/'+last.id">
               <p>上一篇：</p>
               <div>{{last.title}}</div>
             </router-link>
@@ -39,11 +39,11 @@
               <p>上一篇：</p>
               <div>暂无数据</div>
             </div>
-            <router-link style="margin-left:50px;" class="flex_y_center" v-if="next.length!=0"  :to="'/articledetail/'+next.id">
+            <router-link style="margin-left:0px;" class="flex_y_center" v-if="next.length!=0"  :to="'/articledetail2/'+next.id">
               <p>下一篇：</p>
               <div>{{next.title}}</div>
             </router-link>
-            <div v-else style="margin-left:50px;" class="flex_y_center" >
+            <div v-else style="margin-left:0px;" class="flex_y_center" >
               <p>下一篇：</p>
               <div>暂无数据</div>
             </div>
@@ -55,9 +55,9 @@
 </template>
 <script>
 import Topbg from "@/components/Topbg.vue";
-import "../assets/css/articledetail.scss";
+import "../assets/css/articledetail2.scss";
 export default {
-  name: "ArticleDetail",
+  name: "ArticleDetail2",
   data() {
     return {
       detail: {},

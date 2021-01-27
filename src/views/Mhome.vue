@@ -1,16 +1,12 @@
 <template>
-  <div class="home">
+  <div class="mhome">
     <!-- 轮播图 s-->
-    <!-- <div  @mouseenter="on_top_enter" @mouseleave="on_top_leave"> -->
-      <swiper class="banner"  :options="swiperOptions" ref="mySwiper2">
-        <swiper-slide :key="index" v-for="(banner,index) in indexData.banner">
-          <img :src="banner.banner" alt />
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
-      
-    <!-- </div> -->
-    
+    <swiper class="banner" :options="swiperOptions">
+      <swiper-slide :key="index" v-for="(banner,index) in indexData.banner">
+        <img :src="banner.banner" alt />
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
     <!-- 轮播图 e-->
 
     <!-- 医学实验室 s -->
@@ -22,7 +18,7 @@
         <div class="line1"></div>
       </div>
       <div class="flex lab_content">
-        <div class="lab_left">
+        <div class="lab_left flex-wrap">
           <div
             :class="catindex==index?'lab_left_item active':'lab_left_item'"
             :key="index"
@@ -31,7 +27,7 @@
             @click="changeCat(category.id,index)"
           ></div>
         </div>
-        <div class="lab_right">
+        <!-- <div class="lab_right">
           <div class="lab_right_top">
             <img class="lab_img" :src="cateimg[yximgindex].img" alt />
             <p></p>
@@ -45,7 +41,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- 医学实验室 e -->
@@ -58,10 +54,10 @@
         <div class="line2"></div>
         <div class="line1"></div>
       </div>
-      <div class="flex_y_center proportion_content">
+      <div class="flex_x_center proportion_content">
         <img class="ditu" src="../assets/images/ditu.png" alt="">
-        <div class="proportion_content_right">
-          <div class="flex_y_center pcr_top">
+        <div class="proportion_content_right flex-x-center">
+          <div class="flex_all_center pcr_top">
             <div class="flex_x_center">
               <p class="pcr_top_num" v-text="indexData.experiment.sgyy+'+'"></p>
               <p>三甲医院</p>
@@ -139,35 +135,39 @@
         <div class="line2"></div>
         <div class="line1"></div>
       </div>
-      <div class="aiticle_content flex_y_center">
-        <router-link :to="'/'" class="ac_left">
+      <div class="aiticle_content">
+        <router-link to class="ac_left">
           <img :src="indexData.arcicate[artIndex].img" alt="">
           <p v-text="indexData.arcicate[artIndex].type_name"></p>
         </router-link>
-        <div class="ac_center flex_x_center">
-          <div :class="index==artIndex?'acc_item active flex_all_center2':'acc_item flex_all_center2'" v-for="(art,index) in indexData.arcicate" :key="index" @click="artClick(index)">
-            <p class="flex_y_center art_title">
-              <span v-text="art.type_name"></span>
-              <span style="margin-left:10px;" v-if="index==artIndex">></span>
-            </p>
-            <div @click="more(index)">more+</div>
-          </div>
-        </div>
-        <div class="ac_right" v-if="indexData.arcilist[artlistIndex].length>0">
-          <router-link :to="'/articledetail/'+item.id" class="acr_item flex_y_center" v-for="(item,index) in indexData.arcilist[artlistIndex]" :key="index">
-            <div class="flex_all_center2 art_time">
-              <p v-text="item.date"></p>
-              <div v-text="item.year_month"></div>
+        <div class="flex_y_center" style="padding:20px 0;">
+            <div class="ac_center flex_x_center">
+                <div :class="index==artIndex?'acc_item active flex_all_center2':'acc_item flex_all_center2'" v-for="(art,index) in indexData.arcicate" :key="index" @click="artClick(index)">
+                    <p class="flex_y_center art_title">
+                    <span v-text="art.type_name"></span>
+                    <span style="margin-left:10px;" v-if="index==artIndex">></span>
+                    </p>
+                    <div @click="more(index)">more+</div>
+                </div>
             </div>
-            <div class="acr_right">
-              <p class="text_more" v-text="item.title"></p>
-              <div class="text_more2" v-text="item.abstract"></div>
+            <div class="ac_right" v-if="indexData.arcilist[artlistIndex].length>0">
+                <router-link :to="'/articledetail/'+item.id" class="acr_item flex_y_center" v-for="(item,index) in indexData.arcilist[artlistIndex]" :key="index">
+                    <div class="flex_all_center2 art_time">
+                    <p v-text="item.date"></p>
+                    <div v-text="item.year_month"></div>
+                    </div>
+                    <div class="acr_right">
+                    <p class="text_more" style="font-size:15px;" v-text="item.title"></p>
+                    <div class="text_more2" v-text="item.abstract"></div>
+                    </div>
+                </router-link>
             </div>
-          </router-link>
+            <div class="ac_right" v-else>
+                暂无数据~
+            </div>
         </div>
-        <div class="ac_right" v-else>
-          暂无数据~
-        </div>
+        
+        
       </div>
 
     </div>
@@ -178,11 +178,10 @@
 <script>
 // @ is an alias to /src
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
-import { Loading } from 'element-ui';
 import "swiper/css/swiper.css";
-import "../assets/css/index.scss";
+import "../assets/css/index2.scss";
 export default {
-  name: "Home",
+  name: "Mhome",
   data() {
     return {
       indexData: {
@@ -204,7 +203,7 @@ export default {
           el: ".swiper-pagination"
         },
         autoplay: {
-          delay: 5000
+          delay: 3000
         },
         loop: true,
         speed: 1000
@@ -236,12 +235,6 @@ export default {
     swiper: directive
   },
   methods: {
-    // on_top_enter() {
-    //     this.mySwiper2.autoplay.stop()
-    // },
-    // on_top_leave() {
-    //     this.mySwiper2.autoplay.start()
-    // },
     imgClick(e){
       this.yximgindex=e
     },
@@ -263,20 +256,14 @@ export default {
       if(this.indexData.cateimg[id].length>0){
         this.cateimg = this.indexData.cateimg[id]
       }
-      let loadingInstance = Loading.service({ fullscreen: true ,text:'加载中...'});
-      setTimeout(() => {
-        loadingInstance.close();
-      }, 1000);
     },
 
     more(e){
       console.log(e)
       if(e==0){
-        this.$router.replace('/jishuArticle/0');
-        // this.$router.push({name:'JishuArticle'})
+        this.$router.push({name:'JishuArticle'})
       }
       else if(e==1){
-        // this.$router.replace('/about/1/2');
         this.$router.push({name:'About',query:{curindex:1,curerjiIndex2:0}})
       }else if(e==2){
         this.$router.push({name:'About',query:{curindex:1,curerjiIndex2:2}})
@@ -321,11 +308,6 @@ export default {
     }
     
   },
-  // computed: {
-  //     mySwiper2() {
-  //         return this.$refs.mySwiper2.swiper
-  //     },
-  // },
   mounted(){
    if (this.isMobile()) {
       // alert("手机端");

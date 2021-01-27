@@ -1,5 +1,5 @@
 <template>
-  <div class="article_detail">
+  <div class="video2">
     <Topbg :img="topBg" />
     <div class="v_detail">
       <div class="d_nav">技术资源 > 技术培训 > {{detail.title}}</div>
@@ -17,8 +17,7 @@
         </div>
         <div class="ar_list flex-wrap">
           <router-link
-            :to="'/videoDetail/'+item.id"
-            :style="index%4==0?'':'margin-left:39px;'"
+            :to="'/videoDetail2/'+item.id"
             class="ar_item"
             v-for="(item,index) in detail.more"
             :key="index"
@@ -36,9 +35,9 @@
 </template>
 <script>
 import Topbg from "@/components/Topbg.vue";
-import "../assets/css/video.scss";
+import "../assets/css/video2.scss";
 export default {
-  name: "VideoDetail",
+  name: "VideoDetail2",
   data() {
     return {
       detail: {},

@@ -1,41 +1,44 @@
-.article_content {
+.about2{
+    .article_content {
     background: #F8F9FB;
-    padding: 70px 0;
+    padding: 20px 0;
     .article_left2 {
-        width: 300px;
-        min-height: 290px;
-        max-height: 330px;
-        border-radius: 20px;
+        width: 115px;
+        min-height: 100px;
+        max-height: 200px;
+        border-radius: 10px;
         background: #FFF;
         box-shadow: 0px 15px 40px 10px rgba(58, 99, 167, 0.07);
         .al_item:not(:last-child) {
             border-bottom: 1px solid #F3F3F3;
         }
         .al_item {
-            min-height: 70px;
+            min-height: 30px;
             .flex_all_center {
-                padding: 19px 0;
+                padding: 5px 0;
                 cursor: pointer;
                 .icon {
                     margin-left: 40px;
                 }
                 div {
                     margin-left: 10px;
+                    font-size:14px;
                 }
                 div.active {
                     color: rgba(15, 104, 206, 1);
                 }
                 .icon_right {
                     margin-left: auto;
-                    margin-right: 40px;
+                    margin-right: 10px;
                 }
             }
             .al_erji {
                 background: #F7F7F7;
                 p {
-                    padding-left: 83px;
-                    line-height: 40px;
+                    padding-left: 20px;
+                    line-height: 30px;
                     cursor: pointer;
+                    font-size:14px;
                 }
                 p.active {
                     color: rgba(15, 104, 206, 1);
@@ -44,10 +47,10 @@
         }
     }
     .article_right {
-        width: 1080px;
-        margin-left: 60px;
+        width: 230px;
+        margin-left: 15px;
         .class_box {
-            width: 1000px;
+            width: 100%;
             padding: 30px 40px 12px 40px;
             background: rgba(223, 223, 223, .5);
             border-radius: 10px;
@@ -71,24 +74,25 @@
                 box-shadow: 0px 15px 40px 10px rgba(58, 99, 167, 0.07);
             }
             .ar_item2:not(:first-child) {
-                margin-top: 40px;
+                margin-top: 10px;
             }
             .ar_item2 {
-                height: 164px;
+                height:80px;
                 background: #F8F9FB;
                 border-radius: 10px;
-                padding: 30px 26px;
+                padding: 10px;
                 img {
-                    width: 270px;
-                    height: 164px;
+                    width: 80px;
+                    height: 80px;
                 }
                 .art_bot2 {
-                    width: 750px;
-                    padding: 0 16px;
                     overflow: hidden;
+                    margin-left:10px;
                     font-size: 14px;
-                    p {
-                        margin-top: 12px;
+                    width:120px;
+                    padding: 0px;
+                    p{
+                        margin-top:0px;
                     }
                 }
             }
@@ -96,59 +100,64 @@
         .loadtitle {
             width: 100%;
             text-align: center;
-            font-size: 30px;
-            font-weight: bold;
+            font-size: 15px;
         }
         .loadlist {
             width: 100%;
-            margin-top: 30px;
+            margin-top: 10px;
             border-radius: 10px;
+            font-size:14px;
             .loaditem:nth-child(odd) {
                 background: rgba(223, 223, 223, .25);
             }
             .loaditem {
-                height: 55px;
-                line-height: 55px;
+                height: auto;
+    line-height: initial;
+                padding:5px 0;
                 .loaditem_left {
-                    width: 283px;
-                    padding: 0 50px;
+                    width:40px;
+                    padding: 0 10px;
                     border-right: 1px dashed #E2E2E2;
                 }
                 .loaditem_center {
-                    width: 516px;
-                    padding: 0 50px;
+                    width:80px;
+                    padding: 0 10px;
                     border-right: 1px dashed #E2E2E2;
                     text-align: center;
                 }
                 .loaditem_right {
-                    width: 220px;
+                    width:50px;
+                    padding:0 10px;
                     text-align: center;
+                    word-break: break-all;
                 }
             }
         }
         .chengnuohans {
             .cn_title {
-                font-size: 30px;
+                font-size: 15px;
             }
             img {
+                width:100%;
                 display: block;
                 margin: 0 auto;
             }
             .loadcn {
-                width: 260px;
-                height: 50px;
+                width: 100px;
+                height: 30px;
                 background: rgba(15, 104, 206, .5);
                 border-radius: 4px;
                 color: #0F68CE;
                 text-align: center;
-                line-height: 50px;
-                margin-top: 80px;
+                line-height: 30px;
+                margin-top: 20px;
                 cursor: pointer;
+                font-size: 12px;
             }
         }
         .shiyanshi {
             .theteam {
-                margin-top: 30px;
+                margin-top: 10px;
                 .video {
                     width: 500px;
                     height: 290px;
@@ -178,83 +187,56 @@
                     }
                 }
                 .team_right {
-                    margin-left: 30px;
-                    width: 550px;
+                    margin-left: 0px;
+                    width: 230px;
                     .team_content {
+                        width:100%;
                         font-size: 14px;
-                        line-height: 24px;
+                        line-height: 20px;
                     }
                     .flex {
-                        margin-top: 40px;
+                        margin-top: 20px;
                         font-size: 14px;
                         color: #0F68CE;
                         div {
                             width: 33.3%;
                         }
                         div p:last-child {
-                            margin-top: 10px;
+                            margin-top: 0px;
                         }
                     }
                 }
             }
-            // .video {
-            //     width: 100%;
-            //     height: 160px;
-            //     position: relative;
-            //     cursor: pointer;
-            //     border-radius: 10px;
-            //     overflow: hidden;
-            //     margin-top: 100px;
-            //     video {
-            //         width: 100%;
-            //         height: 100%;
-            //         object-fit: fill;
-            //     }
-            //     img {
-            //         position: absolute;
-            //         left: 50%;
-            //         top: 50%;
-            //         transform: translate(-50%, -50%);
-            //         z-index: 9;
-            //     }
-            // }
             .laboratoryimg {
                 width: 100%;
-                height: 310px;
                 border-radius: 10px;
-                margin-top: 30px;
+                margin-top: 10px;
+                height :auto; 
             }
-            .lab_swiper {
-                width: 100%;
-                height: 400px;
-                margin-top: 30px;
-                .swiper-wrapper {
-                    width: 900px;
-                    margin: 0 auto;
-                    position: relative;
-                    left: -85px;
-                    .swiper_item {
-                        width: 260px;
-                        background: #fff;
-                        border-radius: 4px;
-                        overflow: hidden;
-                        box-shadow: 0px 20px 10px rgba(58, 99, 167, 0.05);
-                        img {
-                            width: 100%;
-                        }
-                        p {
-                            width: 100%;
-                            line-height: 70px;
-                            text-align: center;
-                        }
+            .laber{
+                width:100%;
+                margin-top:20px;
+                .swiper_item{
+                    width:110px;
+                    img{
+                        width:100%;
+                    }
+                    p{
+                        text-align:center;
+                        font-size:14px;
+                        margin-bottom:10px;
                     }
                 }
+                .swiper_item:nth-child(even){
+                    margin-left:auto;
+                }
             }
+            
         }
         .kaocha {
             .kc_top {
                 width: 100%;
-                height: 456px;
+                height: 280px;
                 position: relative;
                 border-radius: 10px;
                 color: #fff;
@@ -269,36 +251,37 @@
                 }
                 p {
                     z-index: 9;
-                    font-size: 30px;
+                    font-size: 15px;
                 }
                 div {
-                    width: 842px;
-                    font-size: 14px;
-                    line-height: 24px;
-                    margin-top: 22px;
+                    width: 210px;
+                    font-size: 12px;
+                    line-height: 20px;
+                    margin-top: 10px;
                     z-index: 9;
                 }
             }
             .form {
-                width: 846px;
-                height: 572px;
+                width: 210px;
+                height: auto;
                 background: rgba(255, 255, 255, 1);
                 box-shadow: 0px 15px 40px 10px rgba(0, 0, 0, 0.07);
                 border-radius: 10px;
                 margin: 0 auto;
                 position: relative;
-                top: -106px;
+                top: -20px;
+                padding: 20px 0;
                 input,
                 textarea {
                     border: none;
-                    width: 660px;
+                    width: 150px;
                 }
                 input {
-                    line-height: 50px;
-                    padding: 0 40px;
+                    line-height: 30px;
+                    padding: 0 10px;
                 }
                 textarea {
-                    padding: 26px 40px;
+                    padding: 10px 20px;
                 }
                 .tishi {
                     font-size: 14px;
@@ -307,28 +290,34 @@
                     height: 19px;
                 }
                 .submit {
-                    width: 500px;
-                    height: 50px;
+                    width: 150px;
+                    height: 30px;
                     background: rgba(15, 104, 206, .5);
                     border-radius: 4px;
                     color: #0F68CE;
                     text-align: center;
-                    line-height: 50px;
-                    margin-top: 50px;
+                    line-height: 30px;
+                    margin-top: 20px;
                     cursor: pointer;
+                    font-size: 12px;
                 }
             }
-            .flex {
+            .flex-wrap {
+                width:100%;
                 .flex_x_center {
-                    width: 230px;
+                    // width: 230px;
+                    width:48%;
+                    margin-bottom: 10px;
                     p {
                         font-size: 14px;
-                        margin-top: 20px;
+                        margin-top: 10px;
+                    }
+                    img{
+                        width:30px;
                     }
                     div {
-                        font-size: 18px;
-                        line-height: 26px;
-                        margin-top: 10px;
+                        font-size: 12px;
+                        line-height: 20px;
                         text-align: center;
                     }
                 }
@@ -340,6 +329,10 @@
     }
 }
 
+.notdata{
+    font-size:14px;
+}
 .notclick {
     pointer-events: none;
+}
 }

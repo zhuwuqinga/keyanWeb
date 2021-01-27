@@ -5,27 +5,18 @@ import router from './router'
 import store from './store'
 import VueResource from 'vue-resource'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.use(VueResource)
 Vue.use(VueAwesomeSwiper)
 Vue.http.options.emulateJSON = true;
+Vue.use(ElementUI)
 
 import './assets/css/style.scss'
 
 Vue.config.productionTip = false
-    // router.beforeEach((to, from, next) => {
-    //     /* 路由发生变化修改页面meta */
-    //     if (to.meta.content) {
-    //         let head = document.getElementsByTagName('head');
-    //         let meta = document.createElement('meta');
-    //         meta.content = to.meta.content;
-    //         head[0].appendChild(meta)
-    //     }
-    //     /* 路由发生变化修改页面title */
-    //     if (to.meta.title) {
-    //         document.title = to.meta.title;
-    //     }
-    //     next()
-    // });
+
 
 new Vue({
     router,

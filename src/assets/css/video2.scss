@@ -1,0 +1,66 @@
+.video2 {
+    .v_detail {
+        padding: 10px;
+        .d_content2 {
+            width: 355px;
+            margin: 0 auto;
+        }
+        .d_nav {
+            padding: 0px;
+        }
+        video {
+            width: 100%;
+            height: 300px;
+            margin-top: 10px;
+        }
+        .v_title {
+            font-size: 15px;
+            margin-top: 20px;
+        }
+        .tips {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #A2A2A2;
+        }
+        .more {
+            margin-top: 20px;
+            p {
+                font-size: 14px;
+            }
+            div {
+                margin-left: auto;
+                font-size: 14px;
+                color: #A2A2A2;
+            }
+        }
+        .ar_list {
+            width: 100%;
+            .ar_item:hover {
+                background: #FFF !important;
+                box-shadow: 0px 15px 40px 10px rgba(58, 99, 167, 0.07);
+            }
+            .ar_item:nth-child(even) {
+                margin-left: auto;
+            }
+            .ar_item {
+                width: 48%;
+                height: auto;
+                margin-top: 20px;
+                background: #F8F9FB;
+                border-radius: 0px 0px 4px 4px;
+                img {
+                    width: 100%;
+                    height: 150px;
+                }
+                .art_bot {
+                    padding: 0 10px;
+                    overflow: hidden;
+                    font-size: 14px;
+                    p {
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

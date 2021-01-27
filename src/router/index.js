@@ -5,9 +5,21 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
+        redirect: '/home'
+    }, {
+        path: '/home',
         name: 'Home',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Home.vue'),
+        meta: {
+            title: "首页",
+        }
+    },
+    {
+        path: '/mhome',
+        name: 'Mhome',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Mhome.vue'),
         meta: {
             title: "首页",
         }
@@ -19,7 +31,13 @@ const routes = [{
             import ( /* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
-        path: '/jishuArticle',
+        path: '/about2',
+        name: 'About2',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/About2.vue')
+    },
+    {
+        path: '/jishuArticle/:index',
         name: 'JishuArticle',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/JishuArticle.vue'),
@@ -29,7 +47,17 @@ const routes = [{
 
     },
     {
-        path: '/yixue:/yijiid:/:yijiindex/:erjiid',
+        path: '/jishuArticle2',
+        name: 'JishuArticle2',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/JishuArticle2.vue'),
+        meta: {
+            title: "技术资源",
+        }
+
+    },
+    {
+        path: '/yixue/:yijiid/:yijiindex/:erjiid',
         name: 'Yixue',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Yixue.vue'),
@@ -37,13 +65,14 @@ const routes = [{
             title: "医学实验室",
         }
 
-    }, {
-        path: '/about',
-        name: 'About',
+    },
+    {
+        path: '/yixue2/:yijiid/:yijiindex/:erjiid',
+        name: 'Yixue2',
         component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/About.vue'),
+            import ( /* webpackChunkName: "about" */ '../views/Yixue2.vue'),
         meta: {
-            title: "公司展示",
+            title: "医学实验室",
         }
 
     }, {
@@ -51,6 +80,15 @@ const routes = [{
         name: 'ArticleDetail',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/ArticleDetail.vue'),
+        meta: {
+            title: "新闻详情",
+        }
+
+    }, {
+        path: '/articledetail2/:id',
+        name: 'ArticleDetail2',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/ArticleDetail2.vue'),
         meta: {
             title: "新闻详情",
         }
@@ -96,6 +134,15 @@ const routes = [{
         name: 'VideoDetail',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/VideoDetail.vue'),
+        meta: {
+            title: "培训详情",
+        }
+
+    }, {
+        path: '/videoDetail2/:id',
+        name: 'VideoDetail2',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/VideoDetail2.vue'),
         meta: {
             title: "培训详情",
         }

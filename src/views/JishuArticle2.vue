@@ -1,32 +1,24 @@
 <template>
-  <div class="">
+  <div class="jishu2">
     <Topbg :img="topBg" />
     <div class="article_content flex_x_center2">
       <div class="article_left">
         <div class="al_item flex_all_center" @click="leftClick(0)">
-          <img v-if="curindex==0" class="icon" src="../assets/images/37-1.png" alt />
-          <img v-else class="icon" src="../assets/images/37-2.png" alt />
           <div :class="curindex==0?'active':''">技术文章</div>
           <img v-if="curindex==0" class="icon_right" src="../assets/images/right2.png" alt />
           <img v-else class="icon_right" src="../assets/images/right1.png" alt />
         </div>
         <div class="al_item flex_all_center" @click="leftClick(1)">
-          <img v-if="curindex==1" class="icon" src="../assets/images/34-2.png" alt />
-          <img v-else class="icon" src="../assets/images/34-1.png" alt />
           <div :class="curindex==1?'active':''">资料下载</div>
           <img v-if="curindex==1" class="icon_right" src="../assets/images/right2.png" alt />
           <img v-else class="icon_right" src="../assets/images/right1.png" alt />
         </div>
         <div class="al_item flex_all_center" @click="leftClick(2)">
-          <img v-if="curindex==2" class="icon" src="../assets/images/38-1.png" alt />
-          <img v-else class="icon" src="../assets/images/38-2.png" alt />
           <div :class="curindex==2?'active':''">技术培训</div>
           <img v-if="curindex==2" class="icon_right" src="../assets/images/right2.png" alt />
           <img v-else class="icon_right" src="../assets/images/right1.png" alt />
         </div>
         <div class="al_item flex_all_center" @click="leftClick(3)">
-          <img v-if="curindex==3" class="icon" src="../assets/images/38-1.png" alt />
-          <img v-else class="icon" src="../assets/images/38-2.png" alt />
           <div :class="curindex==3?'active':''">软件下载</div>
           <img v-if="curindex==3" class="icon_right" src="../assets/images/right2.png" alt />
           <img v-else class="icon_right" src="../assets/images/right1.png" alt />
@@ -36,7 +28,7 @@
         <div v-if="curindex==0">
           <div class="class_box flex-wrap">
             <p
-              :style="index%7==0?'':'margin-left:18px;'"
+              
               :class="index==curYjIndex?'class_item active':'class_item'"
               v-for="(item,index) in catList"
               :key="index"
@@ -46,9 +38,8 @@
           </div>
           <div class="ar_list flex-wrap">
             <router-link
-              :to="'/articledetail/'+item.id"
-              :style="index%4==0?'':'margin-left:39px;'"
-              class="ar_item"
+              :to="'/articledetail2/'+item.id"
+              class="ar_item flex-y-center"
               v-for="(item,index) in articleList"
               :key="index"
             >
@@ -59,20 +50,6 @@
               </div>
             </router-link>
           </div>
-          <div v-if="articleList.length>0">
-            <el-pagination
-              background
-              layout="prev, pager, next"
-              :total="totalCount"
-              :page-size="8"
-              :current-page="currentPage"
-              @current-change="pageChange"
-              @prev-click="prev"
-              @next-click="next"
-            >
-            </el-pagination>
-          </div>
-          <div class="notdata" v-else>暂无数据~</div>
         </div>
         <div v-if="curindex==1">
           <p class="loadtitle">资料下载</p>
@@ -86,7 +63,6 @@
         <div v-if="curindex==2">
           <div class="class_box flex-wrap">
             <p
-              :style="index%7==0?'':'margin-left:18px;'"
               :class="index==curYjIndex2?'class_item active':'class_item'"
               v-for="(item,index) in catList"
               :key="index"
@@ -96,8 +72,8 @@
           </div>
           <div class="ar_list flex-wrap">
             <router-link
-              :to="'/videoDetail/'+item.id"
-              :style="index%4==0?'':'margin-left:39px;'"
+              :to="'/videoDetail2/'+item.id"
+              
               class="ar_item"
               v-for="(item,index) in peixunList"
               :key="index"
@@ -109,20 +85,6 @@
               </div>
             </router-link>
           </div>
-          <div v-if="peixunList.length>0">
-            <el-pagination
-              background
-              layout="prev, pager, next"
-              :total="totalCount2"
-              :page-size="8"
-              :current-page="currentPage"
-              @current-change="pageChange2"
-              @prev-click="prev2"
-              @next-click="next2"
-            >
-            </el-pagination>
-          </div>
-          <div class="notdata" v-else>暂无数据~</div>
         </div>
         <div v-if="curindex==3">
           <p class="loadtitle">软件下载</p>
@@ -140,7 +102,7 @@
 
 <script>
 import Topbg from "@/components/Topbg.vue";
-import "../assets/css/article.scss";
+import "../assets/css/article2.scss";
 export default {
   name: "JishuArticle",
   data() {
@@ -155,41 +117,13 @@ export default {
       ruanjianList :[],
       ziliaoList :[],
       peixunList:[],
-      topBg : '',
-      totalCount:0,
-      currentPage:1,
-      totalCount2:0
+      topBg : ''
     };
   },
   components: {
     Topbg
   },
   methods: {
-    pageChange(e){
-      console.log(e)
-      this.loadArticle(this.curid,e)
-    },
-    prev(e){
-      console.log(e)
-      this.loadArticle(this.curid,e)
-    },
-    next(e){
-      console.log(e)
-      this.loadArticle(this.curid,e)
-    },
-
-    pageChange2(e){
-      console.log(e)
-      this.loadPeixun(this.curid,e)
-    },
-    prev2(e){
-      console.log(e)
-      this.loadPeixun(this.curid,e)
-    },
-    next2(e){
-      console.log(e)
-      this.loadPeixun(this.curid,e)
-    },
     download(name, href) {
         var a = document.createElement("a"), //创建a标签
             e = document.createEvent("MouseEvents"); //创建鼠标事件对象
@@ -252,9 +186,10 @@ export default {
             // console.log(res);
             if (res.data.code == 0) {
               this.articleList = res.data.data;
-              this.totalCount = res.data.count
-            } else{
-              this.articleList = [];
+            } else {
+              if (page == 1) {
+                this.articleList = [];
+              }
             }
           },
           function() {
@@ -272,8 +207,11 @@ export default {
             // console.log(res);
             if (res.data.code == 0) {
               this.peixunList = res.data.data;
-              this.totalCount2 = res.data.count
-            } 
+            } else {
+              if (page == 1) {
+                this.peixunList = [];
+              }
+            }
           },
           function() {
             // console.log("请求失败处理");
@@ -348,7 +286,6 @@ export default {
     }
   },
   beforeMount() {
-    this.curindex = this.$route.params.index;
     this.loaddata();
     this.loadXzList(1);
     this.loadXzList(2);
@@ -360,9 +297,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.el-pagination{
-  display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
 </style>

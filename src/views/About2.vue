@@ -1,12 +1,10 @@
 <template>
-  <div class="">
+  <div class="about2">
     <Topbg :img="topBg" />
     <div class="article_content flex_x_center2">
       <div class="article_left2">
         <div class="al_item">
           <div class="flex_all_center" @click="leftClick(0)">
-            <img v-if="curindex==0" class="icon" src="../assets/images/37-1.png" alt />
-            <img v-else class="icon" src="../assets/images/37-2.png" alt />
             <div :class="curindex==0?'active':''">实验室展示</div>
             <img v-if="curindex==0" class="icon_right" src="../assets/images/jiantou1.png" alt />
             <img v-else class="icon_right" src="../assets/images/jiantou2.png" alt />
@@ -19,8 +17,6 @@
         </div>
         <div class="al_item">
           <div class="flex_all_center" @click="leftClick(1)">
-            <img v-if="curindex==1" class="icon" src="../assets/images/34-2.png" alt />
-            <img v-else class="icon" src="../assets/images/34-1.png" alt />
             <div :class="curindex==1?'active':''">新闻动态</div>
             <img v-if="curindex==1" class="icon_right" src="../assets/images/jiantou1.png" alt />
             <img v-else class="icon_right" src="../assets/images/jiantou2.png" alt />
@@ -32,8 +28,6 @@
         </div>
         <div class="al_item">
           <div class="flex_all_center" @click="leftClick(2)">
-            <img v-if="curindex==2" class="icon" src="../assets/images/38-1.png" alt />
-            <img v-else class="icon" src="../assets/images/38-2.png" alt />
             <div :class="curindex==2?'active':''">合作平台</div>
             <img v-if="curindex==2" class="icon_right" src="../assets/images/jiantou1.png" alt />
             <img v-else class="icon_right" src="../assets/images/jiantou2.png" alt />
@@ -62,33 +56,28 @@
                 <div class="line1"></div>
               </div>
               <div class="theteam flex">
-                <div class="video" @click="play">
-                  <video :src="laboratory.sysp" :poster="laboratory.videoimg" id="video"></video>
-                  <div class="video_cup" v-if="isshowplay">
-                    <img  src="../assets/images/021.png" alt="">
-                  </div>
-                </div>
+                
                 <div class="team_right">
                   <p class="team_content" v-text="laboratory.sysjs"></p>
                   <div class="flex">
                     <div>
                       <p v-text="laboratory.education1_name"></p>
                       <p >
-                        <span style="font-size:42px;" v-text="laboratory.education1_num"></span>
+                        <span style="font-size:20px;" v-text="laboratory.education1_num"></span>
                         <span>人</span>
                       </p>
                     </div>
                     <div>
                       <p v-text="laboratory.education2_name"></p>
                       <p >
-                        <span style="font-size:42px;" v-text="laboratory.education2_num"></span>
+                        <span style="font-size:20px;" v-text="laboratory.education2_num"></span>
                         <span>人</span>
                       </p>
                     </div>
                     <div>
                       <p v-text="laboratory.education3_name"></p>
                       <p >
-                        <span style="font-size:42px;" v-text="laboratory.education3_num"></span>
+                        <span style="font-size:20px;" v-text="laboratory.education3_num"></span>
                         <span>人</span>
                       </p>
                     </div>
@@ -97,7 +86,7 @@
               </div>
             </div>
            
-            <div style="margin-top:100px;" class="flex_all_center2">
+            <div style="margin-top:20px;" class="flex_all_center2">
               <p class="title">实验室</p>
               <div class="title_line flex_y_center">
                 <div class="line1"></div>
@@ -106,29 +95,19 @@
               </div>
               <img class="laboratoryimg" :src="laboratory.laboratoryimg" alt="">
             </div>
-            <div style="margin-top:100px;" class="flex_all_center2">
+            <div style="margin-top:20px;" class="flex_all_center2">
               <p class="title">实验设备</p>
               <div class="title_line flex_y_center">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line1"></div>
               </div>
-              <div class="lab_swiper swiper-container" v-swiper:mySwiper="swiperOptions2">
-                <div class="swiper-wrapper">
-                  <div
-                    class="swiper-slide swiper-no-swiping"
-                    :key="index"
-                    v-for="(img,index) in laboratory.equipment"
-                  >
-                    <div class="swiper_item">
-                      <img :src="img.img" alt />
-                      <p v-text="img.title"></p>
-                    </div>
-                  </div>
+              <div class="laber flex-wrap">
+                <div class="swiper_item" :key="index" v-for="(img,index) in laboratory.equipment">
+                    <img :src="img.img" alt />
+                    <p v-text="img.title"></p>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
+               </div>
             </div>
           </div>
           <div class="kaocha" v-if="curerjiIndex1==2">
@@ -143,7 +122,7 @@
               <textarea name="" id="" cols="30" rows="10" v-model="form.desc" placeholder="其他备注"></textarea>
               <div :class="isclick?'submit':'submit notclick' " @click="submit">提交申请</div>
             </div>
-            <div class="flex">
+            <div class="flex-wrap">
               <div class="flex_x_center">
                 <img src="../assets/images/info1.png" alt="">
                 <p>客服电话</p>
@@ -189,7 +168,7 @@
           <div v-if="curerjiIndex2==1">
             <div class="ar_list" v-if="ziliaoList.length>0">
               <router-link
-                :to="'/articledetail/'+item.id"
+                :to="'/articledetail2/'+item.id"
                 class="ar_item2 flex"
                 v-for="(item,index) in ziliaoList"
                 :key="index"
@@ -197,7 +176,7 @@
                 <img :src="item.img" alt />
                 <div class="art_bot2">
                   <p class="text_more" v-text="item.title"></p>
-                  <p class="ar_desc" v-text="item.abstract"></p>
+                  <p class="text_more2 ar_desc" v-text="item.abstract"></p>
                   <p style="color:#A2A2A2" v-text="item.add_date"></p>
                 </div>
               </router-link>
@@ -247,10 +226,10 @@
 
 <script>
 import Topbg from "@/components/Topbg.vue";
-import "../assets/css/about.scss";
+import "../assets/css/about2.scss";
 import "swiper/css/swiper.css";
 export default {
-  name: "About",
+  name: "About2",
   data() {
     return {
       curindex: 0,
@@ -594,17 +573,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-// .swiper-container {
+.swiper-container {
 //   --swiper-navigation-color: #3EA6D2; /* 单独设置按钮颜色 */
-//   --swiper-navigation-size: 16px; /* 设置按钮大小 */
-// }
+  --swiper-navigation-size: 16px; /* 设置按钮大小 */
+}
 
-.swiper-button-prev{
-  top: 50%;
-  transform: translateY(-50%);
-}
-.swiper-button-next{
-  top: 50%;
-  transform: translateY(-50%);
-}
+
 </style>

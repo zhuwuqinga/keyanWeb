@@ -1,59 +1,21 @@
 <template>
-  <div class="yixue">
+  <div class="yixue2">
     <Topbg :img="topBg" />
     <div class="yixue_container flex_x_center2">
-      <div class="yixue_left">
-        <div class="yl_yiji" v-for="(yiji,index) in catList" :key="index">
-          <div class="flex_all_center" @click="yijiClick(index)">
-            <img
-              class="icon"
-              :src="yijiindex==index?'http://www2.uptbio.com/'+yiji.sele_icon:yiji.icon"
-              
-              alt
-            />
-            <p  :class="yijiindex==index?'yjname active':'yjname'" v-text="yiji.name"></p>
-            <img class="jiantou" v-if="yiji.isshow" src="../assets/images/jiantou1.png" alt />
-            <img class="jiantou" v-else src="../assets/images/jiantou2.png"  alt />
-          </div>
-          <div v-if="yiji.isshow">
-            <div class="yl_erji" v-for="(erji,index2) in yiji.product" :key="index2">
-              <p :class="erji.id==erjiid?'active':''" @click="erjiClick(erji.id)" v-text="erji.name"></p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="yixue_right">
         <div class="yixue_info flex">
-          <div class="detail_left">
-            <img class="prodimg" :src="prodimg[proindex]" alt />
-
-            <div class="lab_swiper swiper-container" v-swiper:mySwiper="swiperOptions2">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" @click="imgClick(index)" :key="index" v-for="(prod,index) in prodimg">
-                  <img  :key="index" :src="prod" alt />
-                </div>
-              </div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
-          </div>
           <div class="detail_right">
             <p class="name" v-text="category.name"></p>
-            <p v-text="category.abstract"></p>
-            <div class="flex-wrap" v-if="detail.tag.length>0" :style="btntype==1?'height:100px;':''">
+            <p class="yx_desc" v-text="category.abstract"></p>
+            <div class="flex-wrap" v-if="detail.tag.length>0">
               <p v-for="(item,index) in detail.tag" :key="index" v-text="item.name" @click="erjiClick(item.id)"></p>
             </div>
-            <div v-if="detail.tag.length>0">
-              <div class="flag_btn" @click="flagadd" v-if="btntype==1">...</div>
-              <div style="line-height: 25px;" class="flag_btn" @click="flagminu" v-else>-</div>
-            </div>
-            
-            <div class="flex fuwu">
+            <div class="flex_x_center2 fuwu">
               <div class="fuwu_item" >
                 <p>实验地区：</p>
                 <div>服务全国</div>
               </div>
-              <div class="fuwu_item" style="color:#FF5757;">
+              <div class="fuwu_item" style="color:#FF5757;margin-left:100px;">
                 <p>实验价格：</p>
                 <div @click="download('报价表',baojia)">下载报价表</div>
               </div>
@@ -62,74 +24,9 @@
               <img src="../assets/images/43.png" alt="">
               <p>在线咨询</p>
             </a>
-            <router-link class="topeixun" :to="'/jishuArticle/2'">技术培训</router-link>
           </div> 
         </div>
-        <div class="tab_box">
-          <div class="tab_list flex">
-            <div class="tab_item" @click="tabClick(0)"><p :class="tabindex==0?'active':''">相关实验</p></div>
-            <div class="tab_item" @click="tabClick(1)"><p :class="tabindex==1?'active':''">实验承诺函</p></div>
-            <div class="tab_item" @click="tabClick(2)"><p :class="tabindex==2?'active':''">咨询记录</p></div>
-            <div class="tab_item" @click="tabClick(3)"><p :class="tabindex==3?'active':''">技术文章</p></div>
-            <div class="tab_item" @click="tabClick(4)"><p :class="tabindex==4?'active':''">资料下载</p></div>
-          </div>
-          <div class="shiyan flex-wrap" v-if="tabindex==0">
-            <div v-if="experim.length>0">
-              <div class="sy_item" :style="index%5==0?'':'margin-left:25px;'" v-for="(item,index) in experim" :key="index">
-                <img :src="item.img" alt="">
-                <p v-text="item.title"></p>
-              </div>
-            </div>
-            <div v-else class="notdata">暂无数据~</div>
-          </div>
-          <div class="cnh" v-if="tabindex==1">
-            <img :src="hanimg" alt="">
-          </div>
-          <div class="zixun" v-if="tabindex==2">
-            <div v-if="zixun.length>0">
-              <div class="zixun_item flex_y_center zixun_title"  >
-                <p class="address" >城市</p>
-                <p class="message" >咨询内容</p>
-                <p class="addtime" >时间</p>
-              </div>
-              <div class="zixun_item flex_y_center" v-for="(item,index) in zixun" :key="index" >
-                <p class="address" v-text="item.address"></p>
-                <p class="message" v-text="item.message"></p>
-                <p class="addtime" v-text="item.addtime"></p>
-              </div>
-            </div>
-            <div v-else class="notdata">暂无数据~</div>
-          </div>
-          <div class="" v-if="tabindex==3">
-            <div v-if="article.length>0">
-              <div class="ar_list flex-wrap">
-            <router-link
-              :to="'/articledetail/'+item.id"
-              :style="index%4==0?'':'margin-left:39px;'"
-              class="ar_item"
-              v-for="(item,index) in article"
-              :key="index"
-            >
-              <img :src="item.img" alt />
-              <div class="art_bot">
-                <p class="text_more" v-text="item.title"></p>
-                <p style="color:#A2A2A2" v-text="item.add_date"></p>
-              </div>
-            </router-link>
-          </div>
-            </div>
-            <div v-else class="notdata">暂无数据~</div>
-          </div>
-          <div class="" v-if="tabindex==4">
-            <div class="loadlist" v-if="ziliaoList.length>0">
-              <div class="loaditem flex_y_center" v-for="(item,index) in ziliaoList" :key="index">
-                <div class="loaditem_left" v-text="item.name"></div>
-                <p class="loaditem_right" @click="download(item.name,item.file)">下载</p>
-              </div>
-            </div>
-            <div v-else class="notdata">暂无数据~</div>
-          </div>
-        </div>
+        
         <div class="case flex_all_center2" v-if="detail.anlizan.length>0">
           <p class="title">案例展示</p>
           <div class="title_line flex_y_center">
@@ -138,24 +35,12 @@
             <div class="line1"></div>
           </div>
           <div class="case_list flex">
-            <img class="caseimg" :src="detail.anlizan[animgindex]" alt="">
             <swiper class="case_swiper" :options="swiperOptions">
               <swiper-slide class="case_slide" :key="index" v-for="(img,index) in detail.anlizan">
-                <img  @click="imgClick2(index)" :src="img" alt />
+                <img :src="img" alt />
               </swiper-slide>
               <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
-            <!-- <div class="case_swiper swiper-container" v-swiper:mySwiper="swiper">
-              <div class="swiper-wrapper">
-                <div
-                  class="swiper-slide"
-                  :key="index"
-                  v-for="(img,index) in detail.anlizan"
-                >
-                  <img :src="img" alt />
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
         <div class="fenzi flex_all_center2" v-if="detail.fenzish.length>0">
@@ -166,7 +51,13 @@
             <div class="line1"></div>
           </div>
           <div class="fz_list flex-wrap">
-            <img :style="index%3==0?'':'margin-left:13px;'" :src="img" alt="" v-for="(img,index) in detail.fenzish" :key="index">
+              <swiper class="case_swiper" :options="swiperOptions">
+                <swiper-slide class="case_slide" :key="index" v-for="(img,index) in detail.fenzish">
+                    <img :src="img" alt />
+                </swiper-slide>
+                <div class="swiper-pagination" slot="pagination"></div>
+              </swiper>
+            <!-- <img :style="index%3==0?'':'margin-left:13px;'" :src="img" alt="" v-for="(img,index) in detail.fenzish" :key="index"> -->
           </div>
         </div>
         <div class="product_detail" v-if="erjiid!=''">
@@ -177,7 +68,7 @@
               <div class="line2"></div>
               <div class="line1"></div>
             </div>
-            <div v-html="category.fun_one_contn"></div>
+            <div class="product_content" v-html="category.fun_one_contn"></div>
           </div>
           <div class="flex_all_center2" v-if="category.fun_two_stus==1">
             <p class="title">{{category.fun_two_name}}</p>
@@ -186,7 +77,7 @@
               <div class="line2"></div>
               <div class="line1"></div>
             </div>
-            <div v-html="category.fun_two_contn"></div>
+            <div class="product_content" v-html="category.fun_two_contn"></div>
           </div>
           <div class="flex_all_center2" v-if="category.fun_three_stus==1">
             <p class="title">{{category.fun_three_name}}</p>
@@ -195,7 +86,7 @@
               <div class="line2"></div>
               <div class="line1"></div>
             </div>
-            <div v-html="category.fun_three_contn"></div>
+            <div class="product_content" v-html="category.fun_three_contn"></div>
           </div>
           <div class="flex_all_center2" v-if="category.fun_four_stus==1">
             <p class="title">{{category.fun_four_name}}</p>
@@ -204,7 +95,7 @@
               <div class="line2"></div>
               <div class="line1"></div>
             </div>
-            <div v-html="category.fun_four_contn"></div>
+            <div class="product_content" v-html="category.fun_four_contn"></div>
           </div>
         </div>
       </div>
@@ -215,9 +106,9 @@
 <script>
 import "swiper/css/swiper.css";
 import Topbg from "@/components/Topbg.vue";
-import "../assets/css/yixue.scss";
+import "../assets/css/yixue2.scss";
 export default {
-  name: "Yixue",
+  name: "Yixue2",
   data() {
     return {
       tabindex :0,
@@ -234,9 +125,15 @@ export default {
         }
       },
       swiperOptions:{
-        speed: 1000,
-        slidesPerView: 4,
-        direction :'vertical'
+        pagination: {
+          el: ".swiper-pagination"
+        },
+        autoplay: {
+          delay: 3000
+        },
+        loop: true,
+        speed: 1000
+        
       },
       detail: {
         tag : [],
@@ -263,7 +160,7 @@ export default {
   },
   watch: {
     '$route' (to, from) { //监听路由是否变化
-    console.log(to)
+    // console.log(to)
       if(to.query.yijiid != from.query.yijiid || to.query.yijiindex != from.query.yijiindex || to.query.erjiid != from.query.erjiid){
         this.yijiid = to.query.yijiid;
         this.yijiindex = to.query.yijiindex;
@@ -308,13 +205,28 @@ export default {
       this.proindex = 0
       this.loadarticle()
       this.btntype = 1
-      let list = this.catList
-      list[e].isshow = !list[e].isshow
-      this.catList = list
       // this.postZixun(e,'啊啊啊')
+    },
+    yijiClickOpen(e) {
+      let list = this.catList
+      list[e].isshow = true
+      this.catList = list
+      // if(this.catList[e].product){
+      //   this.erjiid = this.catList[e].product[0].id;
+      // }
+      // this.loaddetail(this.catList[e].id);
+      // this.yijiid = this.catList[e].id
+    },
+    yijiClickClose(e){
+      let list = this.catList
+      list[e].isshow = false
+      this.catList = list
+      this.erjiid = ''
+      
     },
     erjiClick(e ) {
       this.erjiid = e;
+      
       this.proindex = 0
       this.loadproduct(e)
       let list = this.catList
@@ -360,7 +272,7 @@ export default {
         );
     },
     loaddata() {
-      let query = this.$route.params
+      let query = this.$route.query
       // console.log(query)
       this.$http.get("http://www2.uptbio.com/index/index/category",{ params: { type: 1 }}).then(
         function(res) {
@@ -532,22 +444,24 @@ export default {
       this.$router.push({name:'Yixue2',query:{yijiid:this.yijiid,yijiindex:this.yijiindex,erjiid:this.erjiid}})
     } else {
       // alert("pc端");
-      this.$router.replace('/yixue/'+this.yijiid+'/'+this.yijiindex +'/'+this.erjiid);
-      // this.$router.push({path:'yixue',query:{yijiid:this.yijiid,yijiindex:this.yijiindex,erjiid:this.erjiid}})
+      // this.$router.replace('/yixue/?yijiid='+this.yijiid+'&yijiindex='+this.yijiindex +'&erjiid='+this.erjiid);
+      this.$router.push({name:'Yixue',query:{yijiid:this.yijiid,yijiindex:this.yijiindex,erjiid:this.erjiid}})
       // ?yijiid=18&yijiindex=0&erjiid=46
     }
-    console.log(this.$route.params)
   },
   beforeMount() {
-    let query = this.$route.params
+    let query = this.$route.query
     this.erjiid = query.erjiid;
     this.yijiid = query.yijiid;
     this.yijiindex = query.yijiindex;
     if(query.erjiid){
       this.loadproduct(query.erjiid);
+      
     }else{
       this.loaddetail(query.yijiid);
+      
     }
+    
     this.loadbanner();
     this.loaddata();
     this.loadhan()

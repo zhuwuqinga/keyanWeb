@@ -40,10 +40,33 @@ export default {
             // console.log("请求失败处理");
           }
         );
+    },
+    getSEO() {
+      this.$http.get("http://www2.uptbio.com/index/index/config").then(
+        function(res) {
+          console.log(res)
+          if (res.data.code == 0) {
+            var objs = document.getElementsByTagName("meta");
+              for(var i=0;i<objs.length;i++){
+                if(objs[i].name === 'keywords'){
+                  objs[i].content = res.data.data.seo_keyw;
+                }
+                if(objs[i].name === 'description'){
+                  objs[i].content = res.data.data.seo_abst;
+                }
+              }
+              document.getElementsByTagName("title")[0].innerText = res.data.data.seotitle;
+          }
+        },
+        function() {
+          // console.log("请求失败处理");
+        }
+      );
     }
   },
   beforeMount() {
     this.loadbanner();
+    this.getSEO()
   }
 };
 </script>

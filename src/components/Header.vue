@@ -4,10 +4,10 @@
       <img class="top_logo" src="../assets/images/logo1.png" alt="">
       <div class="top_nav flex">
         <router-link class="nav_item" :to="'/'">首页</router-link>
-        <div class="nav_item" @mouseover="header(1)">医学实验</div>
+        <div class="nav_item" @click="navgate">医学实验</div>
         <div class="nav_item" @mouseover="header(2)">整体课题</div>
         <router-link class="nav_item" :to="'/about'">公司展示</router-link>
-        <router-link class="nav_item" :to="'/jishuArticle'">技术资源</router-link>
+        <router-link class="nav_item" :to="'/jishuArticle/0'">技术资源</router-link>
       </div>
       <div class="top_han" @mouseover="hanmouse" @mouseleave="hanleave">
         <img src="../assets/images/top_han.png" alt="">
@@ -75,6 +75,14 @@ export default {
     },
     hanleave(){
         this.$emit('func',0)
+    },
+
+    navgate(){
+      // console.log(this.yijiindex)
+      // console.log(this.yijiid)
+      // console.log(this.erjiid)
+      this.$router.replace('/yixue/'+this.yijiid+'/'+this.yijiindex +'/'+this.erjiid);
+      // this.$router.push({name:'Yixue',query:{yijiid:this.yijiid,yijiindex:this.yijiindex,erjiid:this.erjiid}})
     },
 
     hbyMouse(id,e){

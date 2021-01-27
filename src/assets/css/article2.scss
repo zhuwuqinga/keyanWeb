@@ -1,0 +1,116 @@
+.jishu2 {
+    .article_content {
+        background: #F8F9FB;
+        padding: 10px;
+        .article_left {
+            width: 115px;
+            height: 120px;
+            border-radius: 10px;
+            background: #FFF;
+            box-shadow: 0px 15px 40px 10px rgba(58, 99, 167, 0.07);
+            .al_item:not(:last-child) {
+                border-bottom: 1px solid #F3F3F3;
+            }
+            .al_item {
+                min-height: 30px;
+                cursor: pointer;
+                .icon {
+                    margin-left: 40px;
+                }
+                div {
+                    margin-left: 10px;
+                    font-size: 14px;
+                }
+                div.active {
+                    color: #3EA6D2;
+                }
+                .icon_right {
+                    margin-left: auto;
+                    margin-right: 10px;
+                    width: 6px;
+                }
+            }
+        }
+        .article_right {
+            width: 230px;
+            margin-left: 10px;
+            .class_box {
+                width: 220px;
+                padding: 5px;
+                background: rgba(223, 223, 223, .5);
+                border-radius: 10px;
+                .class_item {
+                    padding: 5px;
+                    background: rgba(223, 223, 223, .6);
+                    color: #A2A2A2;
+                    border-radius: 4px;
+                    margin-bottom: 5px;
+                    cursor: pointer;
+                    font-size: 13px;
+                    margin-right: 10px;
+                }
+                .class_item.active {
+                    background: #0F68CE;
+                    color: #fff;
+                }
+            }
+            .ar_list {
+                width: 100%;
+                .ar_item:hover {
+                    background: #FFF !important;
+                    box-shadow: 0px 15px 40px 10px rgba(58, 99, 167, 0.07);
+                }
+                .ar_item {
+                    width: 100%;
+                    margin-top: 10px;
+                    background: #F8F9FB;
+                    border-radius: 0px 0px 4px 4px;
+                    img {
+                        width: 100%;
+                        height: 100px;
+                    }
+                    .art_bot {
+                        padding: 0 10px;
+                        overflow: hidden;
+                        font-size: 14px;
+                        p {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+            .loadtitle {
+                width: 100%;
+                text-align: center;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .loadlist {
+                width: 100%;
+                margin-top: 10px;
+                border-radius: 10px;
+                .loaditem:nth-child(odd) {
+                    background: rgba(223, 223, 223, .25);
+                }
+                .loaditem {
+                    height: auto;
+                    line-height: initial;
+                    font-size: 14px;
+                    padding: 5px 0;
+                    .loaditem_left {
+                        width: 150px;
+                        padding: 0 5px;
+                        border-right: 1px dashed #E2E2E2;
+                        text-align: center;
+                    }
+                    .loaditem_right {
+                        width: 60px;
+                        text-align: center;
+                        color: #3EA6D2;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

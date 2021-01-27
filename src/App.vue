@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Header  @func="getStatus"/>
+    <Header v-if="!flag"  @func="getStatus"/>
+    <Header2 v-else />
     <router-view/>
-    <Footer @func="getStatus"/>
+    <Footer v-if="!flag" @func="getStatus"/>
+    <Footer2 v-else/>
     <img :class="status==0?'chengnuohan':'chengnuohan cnh_animate'" :src="han" alt="">
     <!-- <img @click="navgate" class="baidu" src="./assets/images/05.png" alt=""> -->
   </div>
@@ -11,16 +13,21 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import Header2 from '@/components/Header2.vue'
+import Footer2 from '@/components/Footer2.vue'
 export default {
   data() {
     return {
       han:'',
-      status : 0
+      status : 0,
+      flag:false
     };
   },
   components: {
     Header,
-    Footer
+    Footer,
+    Header2,
+    Footer2
   },
   methods: {
 
@@ -50,7 +57,7 @@ export default {
       getSEO() {
       this.$http.get("http://www2.uptbio.com/index/index/config").then(
         function(res) {
-          console.log(res)
+          // console.log(res)
           if (res.data.code == 0) {
             let head = document.getElementsByTagName('head');
             let meta = document.createElement('meta');
@@ -71,10 +78,17 @@ export default {
         }
       );
     },
+    isMobile() {
+      let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+      this.flag = flag
+      return flag;
+    }
   },
   created(){
     this.getSEO()
-
+  },
+  mounted(){
+    this.isMobile()
   },
   beforeMount() {
     this.loadhan()
@@ -86,7 +100,7 @@ export default {
 .chengnuohan {
     position: fixed;
     top: 50%;
-    left: 55%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
     width: 0px;
@@ -104,16 +118,22 @@ export default {
     width:0px;
   }
   100%{
-    width: 450px;
+    width: 600px;
   }
 }
 @keyframes cnhmove2 {
   0%{
-    width:450px;
+    width:600px;
   }
   100%{
     width: 0px;
   }
 }
+@media screen and(max-width:450px){
+// #newBridge .nb-icon-right-bottom{
+//       bottom: 100px !important;
+//   }
+}
+
 
 </style>

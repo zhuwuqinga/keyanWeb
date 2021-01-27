@@ -15,22 +15,22 @@
         <div>
             <div class="f_nav">
                 <router-link class="f_nav_item" :to="'/'">首页</router-link>
-                <router-link class="f_nav_item" :to="{name:'Yixue',query:{yijiid:18,yijiindex:0,erjiid:46}}">医学实验</router-link>
+                <div class="f_nav_item"   @click="navgate">医学实验</div>
                 <router-link id="" class="f_nav_item" :to="'/ketione'">整体课题</router-link>
                 <router-link class="f_nav_item" :to="'/about'">公司展示</router-link>
-                <router-link class="f_nav_item" :to="'/jishuArticle'">技术资源</router-link>
+                <router-link class="f_nav_item" :to="'/jishuArticle/0'" >技术资源</router-link>
                 <!-- <router-link class="f_nav_item" :to="'/'">
                     <img src="../assets/images/f1.png" alt="">
                     <p>保密说明</p>
                 </router-link> -->
-                <div class="f_nav_item"  @mouseover="hanmouse" @mouseout="hanleave" style="z-index: 9999;">
+                <div id="zihzi" class="f_nav_item"  @mouseover="hanmouse" @mouseout="hanleave" style="z-index: 9999;">
                     <img src="../assets/images/f2.png" alt="">
                     <p>资质证书</p>
                 </div>
             </div>
             <div class="f_ziliao">
                 <div class="flex_y_center">地址 {{config.address}} 邮箱 {{config.email}}</div>
-                <div style="margin-top:5px;" class="flex_y_center">营业执照： {{config.zhizh}} |<img src="../assets/images/f3.png" alt="">湘公网安备 {{config.beian}}号 湘ICP备{{config.icp}}号</div>
+                <div style="margin-top:5px;" class="flex_y_center">营业执照： {{config.zhizh}} |<img src="../assets/images/f3.png" alt=""> 湘公网安备 <a href="http://www.beian.gov.cn/portal/index.do#" target="blank">{{config.beian}}</a>号 湘ICP备<a target="blank" href="http://www.beian.miit.gov.cn/">{{config.icp}}</a>号</div>
                 <div style="margin-top:5px;" class="flex_y_center">www.uptbio.com 2018 © All Rights Reserved.湖南普拉特泽生物科技有限公司</div>
             </div>
         </div>
@@ -51,6 +51,14 @@ export default {
       }
   },
   methods:{
+    navgate(){
+      // console.log(this.yijiindex)
+      // console.log(this.yijiid)
+      // console.log(this.erjiid)
+      this.$router.replace('/yixue/18/0/46');
+      // this.$router.push({name:'Yixue',query:{yijiid:this.yijiid,yijiindex:this.yijiindex,erjiid:this.erjiid}})
+    },
+
     hanmouse(){
         this.$emit('func',1)
     },
@@ -81,5 +89,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+  
 </style>

@@ -2,7 +2,7 @@
     background: #F8F9FB;
     padding: 70px 0;
     .article_left {
-        width: 300px;
+        width: 15.6%;
         height: 283px;
         border-radius: 20px;
         background: #FFF;
@@ -29,10 +29,10 @@
         }
     }
     .article_right {
-        width: 1080px;
+        width: 57%;
         margin-left: 60px;
         .class_box {
-            width: 1000px;
+            width: 92%;
             padding: 30px 40px 12px 40px;
             background: rgba(223, 223, 223, .5);
             border-radius: 10px;
@@ -105,4 +105,8 @@
             }
         }
     }
+}
+
+.notdata {
+    padding: 50px;
 }
