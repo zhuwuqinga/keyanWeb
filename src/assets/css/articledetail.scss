@@ -1,0 +1,40 @@
+.detail {
+    .d_nav {
+        padding: 70px 241px;
+    }
+    .d_content {
+        width: 1179px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+        .d_title {
+            text-align: center;
+            font-size: 30px;
+        }
+        .date {
+            margin-top: 32px;
+            font-size: 14px;
+            color: #A2A2A2;
+            span {
+                margin-left: 9px;
+            }
+            p {
+                margin-left: 70px;
+            }
+        }
+        .content {
+            margin-top: 68px;
+        }
+        .share {
+            margin-top: 80px;
+            img {
+                margin-left: 12px;
+            }
+            .share_right {
+                margin-left: auto;
+                .flex_y_center {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

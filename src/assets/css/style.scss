@@ -1,0 +1,328 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100%;
+    position: relative;
+    color: #1D1D1D;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 32px;
+    color: #044B9C;
+}
+
+.title_line {
+    margin-top: 20px;
+    .line1 {
+        width: 85px;
+        height: 1px;
+        background: #c0d5d5;
+    }
+    .line2 {
+        width: 150px;
+        height: 8px;
+        background: #c0d5d5;
+        border-radius: 4px;
+    }
+}
+
+
+/*包含以下四种的链接*/
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #1D1D1D;
+}
+
+img {
+    vertical-align: middle;
+}
+
+// flex流体
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex_y_center {
+    display: flex;
+    align-items: center;
+}
+
+.flex_y_center2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex_x_center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex_x_center2 {
+    display: flex;
+    justify-content: center;
+}
+
+.flex_all_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_all_center2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text_more {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text_more2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.baidu {
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    z-index: 999;
+    right: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+// 头部
+.header {
+    width: 97.4%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 10px 50px 0px rgba(12, 44, 67, 0.2);
+    // opacity: 0.9;
+    border-radius: 20px;
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    overflow: hidden;
+    transform: translateX(-50%);
+    z-index: 999;
+    .header_top {
+        height: 100px;
+        .top_logo {
+            margin-left: 215px;
+        }
+        .top_nav {
+            margin-left: auto;
+            .nav_item:not(:first-child) {
+                margin-left: 20px;
+            }
+            .nav_item {
+                cursor: pointer;
+            }
+        }
+        .top_han {
+            display: block;
+            margin-left: 50px;
+            z-index: 9999;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .top_tel {
+            margin-right: 215px;
+            margin-left: 10px;
+        }
+    }
+    .header_bot {
+        padding: 36px 0;
+        border-top: 1px solid #CADEF6;
+        .hb_yixue {
+            .hby_left {
+                margin-left: 215px;
+                width: 194px;
+                .hby_item {
+                    cursor: pointer;
+                    height: 46px;
+                    p {
+                        margin-left: 20px;
+                    }
+                    img {
+                        margin-left: auto;
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .hby_rbox {
+                width: 65%;
+                background: rgba(62, 166, 210, .25);
+                .hby_center {
+                    width: 400px;
+                    height: 240px;
+                    position: relative;
+                    margin-left: 40px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    p {
+                        width: 348px;
+                        position: absolute;
+                        bottom: 24px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: #fff;
+                    }
+                }
+                .hby_right {
+                    width: 600px;
+                    margin-left: 70px;
+                    .gbyr_item {
+                        min-width: 300px;
+                        margin-bottom: 10px;
+                        cursor: pointer;
+                    }
+                    .gbyr_item:hover {
+                        color: rgb(15, 104, 206);
+                    }
+                    .gbyr_item:nth-child(even) {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+        .hb_keti {
+            .ke_item {
+                margin-left: 20px;
+            }
+            .ke_item:hover {
+                color: rgb(15, 104, 206);
+            }
+        }
+    }
+}
+
+.header_animate {
+    height: auto;
+}
+
+.header_animate2 {
+    height: 100px;
+}
+
+// @keyframes header {
+//     0% {
+//         height: 100px;
+//     }
+//     100% {
+//         height: auto;
+//     }
+// }
+// @keyframes header2 {
+//     0% {
+//         height: auto;
+//     }
+//     100% {
+//         height: 100px;
+//     }
+// }
+// 底部
+.footer {
+    background: url(../images/footer_bg.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 60px 240px 28px 240px;
+    color: #fff;
+    a {
+        color: #FFF;
+    }
+    .f_top {
+        padding-bottom: 26px;
+        .f_log {
+            width: 170px;
+            height: 44px;
+        }
+        .f_top_right {
+            margin-left: auto;
+            font-size: 14px;
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 7px;
+            }
+        }
+    }
+    .footer_fgx {
+        width: 100%;
+        height: 1px;
+        background: #fff;
+        opacity: 0.3;
+    }
+    .f_bot {
+        margin-top: 40px;
+        .f_nav {
+            .f_nav_item {
+                display: inline-block;
+                cursor: pointer;
+            }
+            .f_nav_item:not(:first-child) {
+                margin-left: 40px;
+                p {
+                    display: inline;
+                    margin-left: 10px;
+                }
+                img {
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+        .f_ziliao {
+            margin-top: 36px;
+            font-size: 14px;
+            img {
+                margin: 0 10px;
+            }
+        }
+    }
+    .ewm {
+        margin-left: auto;
+        img {
+            width: 99px;
+            height: 98px;
+        }
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.topbg {
+    width: 100%;
+    img {
+        width: 100%;
+    }
+}

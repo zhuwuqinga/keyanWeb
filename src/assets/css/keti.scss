@@ -1,0 +1,32 @@
+.keti {
+    width: 62.5%;
+    padding: 70px 0;
+    margin: 0 auto;
+    .keti_title {
+        font-size: 30px;
+        text-align: center;
+    }
+    .keti_desc {
+        padding: 24px 40px;
+        background: rgba(223, 223, 223, 1);
+        font-size: 14px;
+        line-height: 24px;
+        border-radius: 10px;
+        margin: 40px 0;
+    }
+    img {
+        width: 100%;
+    }
+    .btn {
+        display: block;
+        width: 320px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        margin: 0 auto;
+        margin-top: 70px;
+        background: rgba(15, 104, 206, .25);
+        color: #0F68CE;
+        border-radius: 4px
+    }
+}
